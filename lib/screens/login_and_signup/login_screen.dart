@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/signup_page.dart';
+import 'package:untitled1/screens/login_and_signup/signup_page.dart';
 
-import '../custom_widgets/custom_text.dart';
-import '../widgets_body/login_body.dart';
+import '../../widgets_body/login_body.dart';
+
 
 class LoginPage extends StatelessWidget {
   @override

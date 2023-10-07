@@ -1,14 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/screens/brands.dart';
+
+import '../custom_widgets/custom_text.dart';
 class ChatOne extends StatelessWidget {
   const ChatOne({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-
-
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 40,
+          ),
+        ),
+        title: TextFormField(
+          maxLines: 1,
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.search,
+              size: 30,
+              color: Color(0xffBF00C2),
+            ),
+            filled: true,
+            fillColor: Colors.white,
+            isDense: true,
+            hintText: 'Search your Car',
+            // contentPadding: EdgeInsets.only(bottom: 50),
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white,
+                  width: 2,
+                  strokeAlign: 5,
+                ),
+                borderRadius: BorderRadius.circular(50)),
+          ),
+        ),
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Brands()));
+          }, icon: Icon(
+            Icons.more_vert_rounded,
+            color: Colors.white,
+            size: 40,
+          ) )
+                 ],
+      ),
 
       floatingActionButton: Container(
           width: 50,
@@ -26,79 +69,6 @@ class ChatOne extends StatelessWidget {
           children: [
             SizedBox(
               height: 25,
-            ),
-            Row(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-                SizedBox(
-                  width: 35,
-                ),
-                Container(
-                  width: 250,
-                  child: TextFormField(
-                    maxLines: 1,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      prefixIcon: Image.asset(
-                        'assets/images/Group 33906.png',
-                        width: 50,
-                        height: 20,
-                        color: Colors.red,
-                      ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      isDense: true,
-                      hintText: 'Search Chat Car',
-                      // contentPadding: EdgeInsets.only(bottom: 50),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                            width: 2,
-                            strokeAlign: 5,
-                          ),
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 35,
-                ),
-                Icon(
-                  Icons.more_vert_rounded,
-                  color: Colors.white,
-                  size: 40,
-                )
-/*
-                Stack(
-                  children: [
-                    Positioned(
-                      child: Icon(
-                        Icons.notifications_none,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Positioned(
-                        top: 10,
-                        left: 22,
-                        child: Container(
-                          width: 8,
-                          height: 8,
-                          decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(50)),
-                        )),
-                  ],
-                ),
-*/
-              ],
             ),
             SizedBox(
               height: 40,
@@ -118,6 +88,100 @@ class ChatOne extends StatelessWidget {
                 ),
               ],
             ),
+
+
+            ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: 600, maxWidth: double.infinity),
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: 8,
+                itemBuilder: (context, int index) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Container(
+                      width: double.infinity,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.black,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15.0),
+                            child: Container(
+                              width: 70,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Image.asset(
+                                'assets/images/pngwing.png',
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+
+
+                                      Row(
+                                        children: [
+                                          CustomText(
+                                            fontSize: 14,
+                                            textColor: Colors.grey,
+                                            text: "Mileage 80K   ",
+                                          ),
+                                          Image.asset('assets/images/امارات.png'),
+                                        ],
+                                      ),
+                                      CustomText(
+                                        fontSize: 14,
+                                        textColor: Colors.grey,
+                                        text: '4:00 PM',
+                                      )
+                                    ],
+                                  ),
+                                  Text(
+                                    'Ford Reckons',
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    'wow , that\'s awesome ! ',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+/*
             ConstrainedBox(
               constraints:
                   BoxConstraints(maxHeight: 600, maxWidth: double.infinity),
@@ -184,6 +248,7 @@ class ChatOne extends StatelessWidget {
                         ),
                       )),
             ),
+*/
           ],
         ),
       ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/consts/consts.dart';
 
 import '../custom_widgets/custom_container.dart';
 import '../custom_widgets/custom_text.dart';
-import '../screens/signup_page.dart';
+import '../screens/login_and_signup/signup_page.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({Key? key}) : super(key: key);
@@ -15,6 +16,15 @@ class LoginBody extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
               width: MediaQuery.of(context).size.width,
+              // width: MediaQuery.of(context).size.width,
+              height: 300,
+              decoration:const  BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(40),
+                    topLeft: Radius.circular(40)),
+                color:Color(0xffEEEEEE),
+
+              ),
               child: Column(
                 children: [
                   SizedBox(
@@ -66,15 +76,6 @@ class LoginBody extends StatelessWidget {
                     ],
                   )
                 ],
-              ),
-              // width: MediaQuery.of(context).size.width,
-              height: 300,
-              decoration:const  BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(40),
-                    topLeft: Radius.circular(40)),
-                color: Colors.white,
-
               )),
         )
 

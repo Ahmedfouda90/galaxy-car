@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/cars_details.dart';
+import 'package:untitled1/screens/countries/cars_details.dart';
 
 import '../custom_widgets/custom_text.dart';
 import '../widgets_body/home_page_two_body/bottom_sheet.dart';
@@ -161,14 +161,14 @@ class SameBrand extends StatelessWidget {
                                           style: TextStyle(),
                                         ),
                                         SizedBox(
-                                          width: 5,
+                                          width: 10,
                                         ),
                                         Text(
                                           'white',
                                           style: TextStyle(),
                                         ),
                                         SizedBox(
-                                          width: 15,
+                                          width: 10,
                                         ),
                                         Text(
                                           '58,900 \$ ',

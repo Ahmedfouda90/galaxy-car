@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/screens/home_page.dart';
+import 'package:untitled1/screens/home_page/home_page.dart';
 
-import '../custom_widgets/custom_text.dart';
-import '../custom_widgets/signInOrUP_button.dart';
-import '../custom_widgets/textFormField_Widget.dart';
-import 'login_screen.dart';
+import '../../custom_widgets/custom_text.dart';
+import '../../custom_widgets/signInOrUP_button.dart';
+import '../../custom_widgets/textFormField_Widget.dart';
+import 'package:untitled1/screens/login_and_signup/login_screen.dart';
 
 class SignupTwo extends StatelessWidget {
   @override
@@ -27,6 +27,17 @@ class SignupTwo extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
+                width:
+                  // 410,
+                  MediaQuery.of(context).size.width,
+                  height: 358,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(40),
+                          topLeft: Radius.circular(40)),
+                      color:
+                      // Colors.red
+                      Color(0xffD9D9D9)),
                 child: Column(
                   children: [
                     SizedBox(height: 20),
@@ -93,23 +104,12 @@ class SignupTwo extends StatelessWidget {
                             child: CustomText(fontSize: 14,
                                 // textColor: Colors.grey,
                                 text: 'Sign in    ',
-                                fontWeight: FontWeight.bold),),
+                                fontWeight: FontWeight.bold, textColor: Colors.black,),),
                         ],
                       ),
                     )
                   ],
-                ),
-                  width:
-                  // 410,
-                  MediaQuery.of(context).size.width,
-                  height: 358,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(40),
-                          topLeft: Radius.circular(40)),
-                      color:
-                      // Colors.red
-                      Color(0xffD9D9D9))
+                )
               ),
             ),
           ],

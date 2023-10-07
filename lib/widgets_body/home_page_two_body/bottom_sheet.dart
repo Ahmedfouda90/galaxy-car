@@ -23,7 +23,7 @@ class BottomSheett extends StatelessWidget {
                     Container(
                       width: 100,
                       height: 5,
-                      color: Colors.red,
+                      color: Color(0xffBF00C2),
                     ),
                     SizedBox(
                       height: 15,
@@ -97,15 +97,13 @@ class BottomSheett extends StatelessWidget {
                   ],
                 ),
               ),
-              Slider(
-                // divisions: 2,
-                focusNode: FocusNode(canRequestFocus: true),
-                autofocus: true,
-                activeColor: Colors.black,
-                value: 100,
-                max: 220,
-                min: 80,
-                onChanged: (double value) {},
+              RangeSlider(
+
+                activeColor: Color(0xffBF00C2),
+                max: 100.5,
+                min: 30.0,
+                onChanged: ( value) {
+                }, values: RangeValues(40,90),
               ),
               SizedBox(
                 height: 15,

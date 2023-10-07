@@ -18,6 +18,7 @@ class CustomText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
+        fontFamily:'Poppins',
         color: textColor,
         fontWeight: fontWeight,
         fontSize: fontSize,

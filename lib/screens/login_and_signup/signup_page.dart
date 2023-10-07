@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/custom_widgets/custom_text.dart';
-import 'package:untitled1/screens/login_screen.dart';
-import 'package:untitled1/screens/sign_up_two.dart';
+import 'package:untitled1/screens/login_and_signup/login_screen.dart';
+import 'package:untitled1/screens/login_and_signup/sign_up_two.dart';
 
-import '../custom_widgets/custom_container.dart';
-import '../custom_widgets/signInOrUP_button.dart';
-import '../custom_widgets/textFormField_Widget.dart';
+import '../../custom_widgets/custom_container.dart';
+import '../../custom_widgets/signInOrUP_button.dart';
+import '../../custom_widgets/textFormField_Widget.dart';
 
 class SignupPage extends StatelessWidget {
   const SignupPage({super.key});
@@ -30,6 +30,15 @@ class SignupPage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
+                width:
+                    // 410,
+                    MediaQuery.of(context).size.width,
+                height: 300,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(40),
+                        topLeft: Radius.circular(40)),
+                    color:  Color(0xffEEEEEE)),
                 child: Column(
                   children: [
                     SizedBox(
@@ -94,17 +103,6 @@ class SignupPage extends StatelessWidget {
                     )
                   ],
                 ),
-                width:
-                    // 410,
-                    MediaQuery.of(context).size.width,
-                height: 300,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(40),
-                        topLeft: Radius.circular(40)),
-                    color:
-                        // Colors.red
-                        Color(0xffD9D9D9)),
               ),
             ),
           ],

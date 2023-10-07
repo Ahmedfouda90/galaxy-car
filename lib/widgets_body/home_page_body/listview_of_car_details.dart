@@ -15,7 +15,7 @@ class ListViewOfCarDetails extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: Container(
               width: 80,
-              height: 100,
+              height: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Color(0xffEEEEEE),
