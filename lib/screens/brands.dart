@@ -7,8 +7,12 @@ class Brands extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
-      appBar: AppBar(
+      appBar:AppBar(
+
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -16,45 +20,60 @@ class Brands extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_new,
             color: Colors.white,
-            size: 40,
+            size: 30,
           ),
         ),
-        title: TextFormField(
-          maxLines: 1,
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              size: 30,
-              color: Color(0xffBF00C2),
+        title: Container(
+          height: screenHeight*.0438,
+          width: screenWidth*.533,
+          child: TextFormField(
+
+            // maxLines: 1,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(top: screenHeight*.01),
+              prefixIcon: Icon(
+                Icons.search,
+                size: 25,
+                color: Color(0xffBF00C2),
+              ),
+              filled: true,
+              fillColor: Colors.white,
+              isDense: true,
+              hintText: 'Search Chat Car',
+              hintStyle: TextStyle(
+                  textBaseline: TextBaseline.alphabetic
+              ),
+
+              // contentPadding: EdgeInsets.only(bottom: 50),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                    width: 2,
+                    strokeAlign: 5,
+                  ),
+                  borderRadius: BorderRadius.circular(50)),
             ),
-            filled: true,
-            fillColor: Colors.white,
-            isDense: true,
-            hintText: 'Search your Car',
-            // contentPadding: EdgeInsets.only(bottom: 50),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white,
-                  width: 2,
-                  strokeAlign: 5,
-                ),
-                borderRadius: BorderRadius.circular(50)),
           ),
         ),
+        centerTitle: true     ,
         actions: [
+
+
           Stack(
             children: [
               Positioned(
                 child: IconButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => RecentlyAdded()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecentlyAdded()));
                     },
                     icon: Icon(
                       Icons.notifications_none,
                       color: Colors.white,
-                      size: 40,
+                      size: 30,
                     )),
               ),
               Positioned(
@@ -69,148 +88,155 @@ class Brands extends StatelessWidget {
                   )),
             ],
           ),
+
+/*
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Brands()));
+              },
+              icon: Icon(
+                Icons.more_vert_rounded,
+                color: Colors.white,
+                size: 30,
+              )),
+*/
         ],
       ),
+
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 25,
-            ),
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: screenWidth*.04),
+          child: Column(
+            children: [
+              SizedBox(
+                height: screenHeight*.04,
+              ),
 
-            SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15),
-                  child: Text(
+
+              Row(
+                children: [
+                  Text(
                     'Brands ',
                     style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                         color: Colors.white,
-                        fontWeight: FontWeight.w900),
+                        fontWeight: FontWeight.bold
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ConstrainedBox(
-              constraints:
-                  BoxConstraints(maxHeight: 900, maxWidth: double.infinity),
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  itemCount: 8,
-                  itemBuilder: (context, int index) => Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Container(
-                            width: double.infinity,
-                            height: 120,
+                ],
+              ),
+              SizedBox(
+                height: screenHeight*.02,
+              ),
+              ConstrainedBox(
+                constraints:
+                    BoxConstraints(maxHeight: 900, maxWidth: double.infinity),
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: 16,
+                    itemBuilder: (context, int index) => Container(
+                      margin: EdgeInsets.symmetric(vertical: screenHeight*.015),
+                      width: screenWidth*.846,
+                      height: screenHeight*.136,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xffEEEEEE),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(15),
+                            width: screenHeight*.1,
+                            height: screenWidth*.21,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: Color(0xffEEEEEE),
-                            ),
-                            child: Row(
-                              children: [
-                                Padding(
-                                    padding: const EdgeInsets.all(14.0),
-                                    child: Container(
-                                      height: 80,
-                                      width: 70,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          // color:Colors.grey,
-                                          gradient: LinearGradient(
-                                              begin: Alignment.topCenter,
-                                              end: Alignment.bottomCenter,
-                                              colors: [
-                                                Color(0xffBF00C2),
-                                                Color(0xffF65169),
-                                                Color(0xffFFD800),
-                                              ]),
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                            'assets/images/f.png',
-                                          ))),
-                                      child: Image.asset(
-                                        'assets/images/f.png',
-                                        width: 4,
-                                        height: 40,
-                                      ),
-                                    )),
-                                Expanded(
-                                  child: Column(
-                                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      // SizedBox(height: 15,),
-                                      Row(
-                                        // crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text('2020'),
-                                          IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(
-                                                Icons.favorite_border,
-                                                size: 25,
-                                              ))
-                                        ],
-                                      ),
-                                      Text(
-                                        'Ford Reckons',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
+                                borderRadius:
+                                    BorderRadius.circular(15),
+                                // color:Colors.grey,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0xffBF00C2),
+                                      Color(0xffF65169),
+                                      Color(0xffFFD800),
+                                    ]),
 
-                                      Row(
-                                        children: [
-                                          Text(
-                                            '100 k ml',
-                                            style: TextStyle(),
-                                          ),
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-                                          Text(
-                                            'white',
-                                            style: TextStyle(),
-                                          ),
-                                          SizedBox(
-                                            width: 15,
-                                          ),
-                                          Text(
-                                            '\$ 58,900',
-                                            style: TextStyle(),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                            ),
+                            child: Image.asset(
+                              'assets/images/f.png',
+                              width: screenHeight*.087,
+                              height: screenWidth*.21,
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment:
+                                  CrossAxisAlignment.start,
+                              children: [
+                                // SizedBox(height: 15,),
+                                Row(
+                                  // crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('2020'),
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.favorite_border,
+                                          size: 25,
+                                        ))
+                                  ],
+                                ),
+                                Text(
+                                  'BMW',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                SizedBox(
+                                  height: 5,
                                 ),
 
-                                // Text('hbgvc')
+                                Row(
+                                  children: [
+                                    Text(
+                                      '100 k ml',
+                                      style: TextStyle(),
+                                    ),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      'white',
+                                      style: TextStyle(),
+                                    ),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text(
+                                      '\$ 58,900',
+                                      style: TextStyle(),
+                                    ),
+                                  ],
+                                )
                               ],
                             ),
                           ),
-                        ),
-                      )),
-            ),
-          ],
+
+                          // Text('hbgvc')
+                        ],
+                      ),
+                    )),
+              ),
+            ],
+          ),
         ),
       ),
     );

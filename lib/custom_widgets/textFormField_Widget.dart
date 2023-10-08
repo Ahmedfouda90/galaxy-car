@@ -7,8 +7,10 @@ class TextFormFieldWidget extends StatelessWidget{
     @required this.padding=70.0,required this.hintText,
    @ required this.keyboardType=TextInputType.number,
     @required this.borderColor=Colors.white54,
+    required this.height,required this.width
 });
-
+final double width;
+final double height;
   final String hintText ;
   final double padding;
   final TextInputType keyboardType;
@@ -18,7 +20,8 @@ class TextFormFieldWidget extends StatelessWidget{
 
   Widget build(BuildContext context) {
   return Container(
-    width: 300,
+    width: width,
+    height: height,
     child: TextFormField(
 
       maxLines: 1,

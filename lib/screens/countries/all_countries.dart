@@ -8,8 +8,96 @@ import '../../custom_widgets/textFormField_Widget.dart';
 class Countries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
-      appBar: AppBar(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(
+          screenHeight * .114,
+        ),
+        child: Padding(
+          padding:  EdgeInsets.only(top: screenHeight * .043),
+          child: Container(
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                  size: 40,
+                ),
+              ),
+              title: Container(
+                height: screenHeight*.0438,
+                width: screenWidth*.533,
+                child: TextFormField(
+
+                  // maxLines: 1,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(top: screenHeight*.01),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      size: 25,
+                      color: Color(0xffBF00C2),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    isDense: true,
+                    hintText: 'Search your Car',
+                    hintStyle: TextStyle(
+                        textBaseline: TextBaseline.alphabetic
+                    ),
+
+                    // contentPadding: EdgeInsets.only(bottom: 50),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 2,
+                          strokeAlign: 5,
+                        ),
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
+              ),
+              actions: [
+                Stack(
+                  children: [
+                    Positioned(
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomePageTwo()));
+                          },
+                          icon: Icon(
+                            Icons.notifications_none,
+                            color: Colors.white,
+                            size: 40,
+                          )),
+                    ),
+                    Positioned(
+                        top: 10,
+                        left: 22,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(50)),
+                        )),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      /*AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -71,14 +159,14 @@ class Countries extends StatelessWidget {
             ],
           ),
         ],
-      ),
+      ),*/
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        padding:  EdgeInsets.symmetric(horizontal: screenWidth*.04),
         child: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: screenHeight*.043,
             ),
             Row(
               children: [
@@ -90,7 +178,7 @@ class Countries extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: screenHeight*.023,
             ),
             Expanded(
               child: Column(
@@ -107,17 +195,20 @@ class Countries extends StatelessWidget {
                       ),
                       itemBuilder: (BuildContext context, int index) {
                         return Container(
-                          width: 200,
-                          height: 150,
+                          // width: screenWidth*.244,
+                          // height: screenHeight*.116,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: Color(0xffEEEEEE),
                           ),
                           child: Column(
                             children: [
-                              Image.asset(
-                                'assets/images/Frame 41.png',
-                                width: 100,
+                              Padding(
+                                padding:  EdgeInsets.only(top: screenHeight*.015),
+                                child: Image.asset(
+                                  'assets/images/Frame 41.png',
+                                  // width: 100,
+                                ),
                               ),
                               CustomText(
                                   fontSize: 18,

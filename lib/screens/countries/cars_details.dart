@@ -8,6 +8,9 @@ import '../../widgets_body/dar_details_body/car_pics.dart';
 class CarDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
         appBar: AppBar(
           // centerTitle: true,
@@ -18,7 +21,7 @@ class CarDetails extends StatelessWidget {
             icon: Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
-              size: 40,
+              size: 25,
             ),
           ),
 
@@ -35,7 +38,6 @@ class CarDetails extends StatelessWidget {
             ],
           ),
 
-
           centerTitle: true,
           actions: [
             Stack(
@@ -51,12 +53,12 @@ class CarDetails extends StatelessWidget {
                       icon: Icon(
                         Icons.notifications_none,
                         color: Colors.white,
-                        size: 40,
+                        size: 30,
                       )),
                 ),
                 Positioned(
-                    top: 10,
-                    left: 22,
+                    top: 12,
+                    left: 25,
                     child: Container(
                       width: 8,
                       height: 8,
@@ -69,70 +71,68 @@ class CarDetails extends StatelessWidget {
           ],
         ),
 
-        backgroundColor: Colors.black,
+
+
+
+        backgroundColor:Color(0xFF2B2A29),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(left: 15.0),
+            padding:  EdgeInsets.only(left: screenWidth*.04),
             child: Column(children: [
-              const   SizedBox(
-                height: 20,
+                 SizedBox(
+                height: screenHeight*.02,
               ),
-              //first row that contains notification icon
 
-              //second item , contains logo and name  of brand
-              Padding(
-                padding: const EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/Group 33977.png',
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hyundai TUC',
-                          style: TextStyle(
-                              // fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                              color: Colors.grey),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Ven 90 zo',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 22,
-                              color: Colors.white),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/images/Group 33977.png',
+                  ),
+                  SizedBox(
+                    width: screenWidth*.03,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hyundai TUC',
+                        style: TextStyle(
+                            // fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                            color: Colors.grey),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        'Ven 90 zo',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18  ,
+                            color: Colors.white),
+                      ),
+                    ],
+                  )
+                ],
               ),
               //this for the earth logo in background and car images
               CarImages(),
               // just text
+              SizedBox(
+                height: screenHeight*.025,
+              ),
               Row(
                 children:const [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: Text(
-                      'Specifications',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white),
-                    ),
+                  Text(
+                    'Specifications',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
                   ),
                 ],
               ),
-              const  SizedBox(height: 10),
+                SizedBox(height: screenHeight*.02),
               ConstrainedBox(
                 constraints:
                     BoxConstraints(maxHeight: 70, maxWidth: double.infinity),
@@ -140,83 +140,80 @@ class CarDetails extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: 8,
                     itemBuilder: (context, int index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding:  EdgeInsets.only(right: screenWidth*.03),
                           child: Container(
-                            width: 100,
-                            height: 50,
+                            width: screenWidth*.343,
+                            height: screenHeight*.086,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 color: Colors.black12,
-                                border: Border.all(color: Colors.grey, width: 2)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 15.0),
-                                  child: Text(
-                                    'Energy Type',
+                                border: Border.all(color: Colors.grey, width: 1.3)),
+                            child: Padding(
+                              padding:  EdgeInsets.only(left: screenWidth*.04),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children:  [
+                                  SizedBox(
+                                    height: screenHeight*.012,
+                                  ),
+                                  Text(
+                                    'Model',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w900,
                                         fontSize: 12,
                                         color: Colors.grey),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: 15.0),
-                                  child: Text(
+                                  SizedBox(
+                                    height: screenHeight*.008,
+                                  ),
+                                  Text(
                                     'Gas',
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w900,
+                                        // fontWeight: FontWeight.bold,
                                         fontSize: 18,
                                         color: Colors.white),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         )),
               ),
               SizedBox(
-                height: 10,
+                height: screenHeight*.04,
               ),
               //just text
+/*
               Row(
                 children: const [
-                  Padding(
-                    padding:  EdgeInsets.only(left: 15.0),
-                    child: Text(
-                      'More details',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white),
-                    ),
+                  Text(
+                    'More details',
+                    style: TextStyle(
+
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
                   ),
                 ],
               ),
+*/
 
-            const  SizedBox(
-                height: 18,
-              ),
+              /*SizedBox(
+              height: screenHeight*.01,
+              ),*/
               Padding(
-                padding: const EdgeInsets.only(left: 10.0,right: 20),
+                padding:  EdgeInsets.only(right: screenWidth*.04),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      width: 160,
-                      height: 50,
+                      width: screenWidth*.397,
+                      height: screenHeight*.056,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -242,11 +239,11 @@ class CarDetails extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: 10),
-                      width: 160,
-                      height: 50,
+                      width: screenWidth*.397,
+                      height: screenHeight*.056,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -271,21 +268,21 @@ class CarDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const  SizedBox(
-                height: 25,
+                SizedBox(
+                height: screenHeight*.03,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0,right: 20),
+                padding:  EdgeInsets.only(right: screenWidth*.04),
                 child: Row(
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      width: 160,
-                      height: 40,
+                      width: screenWidth*.397,
+                      height: screenHeight*.056,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(25)),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         // crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -306,11 +303,11 @@ class CarDetails extends StatelessWidget {
                     ),
 
                     Container(
-                      width: 160,
-                      height: 40,
+                      width: screenWidth*.397,
+                      height: screenHeight*.056,
                       decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(25)),
+                          borderRadius: BorderRadius.circular(50)),
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,

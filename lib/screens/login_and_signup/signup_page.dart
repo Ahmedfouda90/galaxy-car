@@ -12,102 +12,127 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('oinjnijkn'),
-      // ),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        // height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-          image:
-              AssetImage('assets/images/Backup_of_Backup_of_helsy 1 (2).png'),
-          fit: BoxFit.cover,
-        )),
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                width:
-                    // 410,
-                    MediaQuery.of(context).size.width,
-                height: 300,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(40),
-                        topLeft: Radius.circular(40)),
-                    color:  Color(0xffEEEEEE)),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 30,
-                    ),
-                    CustomText(
-                        fontSize: 24,
-                        // textColor: Colors.white,
-                        text: 'sign up',
-                        fontWeight: FontWeight.w700),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      // width: 300,
-                      child: TextFormFieldWidget(
-                        hintText: '                 phone number',
-                        keyboardType: TextInputType.phone,
+        backgroundColor: Color(0xFF2B2A29),
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Align(
+                alignment: Alignment.topRight,
+                child: Image.asset(
+                  'assets/images/6p.png',
+                  height: screenHeight * .473,
+                  // width: MediaQuery.of(context).size.width,
+                ),
+              ),
+              SizedBox(
+                height: screenHeight * .08,
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                      // width: MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(40),
+                            topLeft: Radius.circular(40)),
+                        color: Color(0xffEEEEEE),
                       ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignupTwo()));
-                      },
-                      child: SignInOrUpButton(
-                        text: 'sign up',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 125),
-                      child: Row(
+                      child: Column(
                         children: [
+                          SizedBox(
+                            height: screenHeight * .1,
+                          ),
                           CustomText(
-                              fontSize: 14,
-                              textColor: Colors.grey,
-                              text: 'Have an account ?   ',
-                              fontWeight: FontWeight.bold),
+                              fontSize: 24,
+                              // textColor: Colors.white,
+                              text: 'sign up',
+                              fontWeight: FontWeight.w700),
+                          SizedBox(
+                            height: screenHeight * .04,
+                          ),
+                          Container(
+                            // width: 300,
+                            child: TextFormFieldWidget(
+                              hintText: '                 phone number',
+                              keyboardType: TextInputType.phone,
+                              width: screenWidth * .58,
+                              height: screenHeight * .055,
+                            ),
+                          ),
+                          SizedBox(
+                            height: screenHeight * .03,
+                          ),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginPage()));
+                                      builder: (context) => SignupTwo()));
                             },
-                            child: CustomText(
-                                fontSize: 14,
-                                // textColor: Colors.grey,
-                                text: 'Sign in    ',
-                                fontWeight: FontWeight.bold),
+                            child: CustomContainer(
+                              width: screenWidth * .58,
+                              height: screenHeight * .055,
+                              borderRadius: 40,
+                              color: Color(0xFF2B2A29),
+                              child: Center(
+                                child: CustomText(
+                                  text: 'Sign Up',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.normal,
+                                  textColor: Colors.white,
+                                ),
+                              ),
+                            ),
                           ),
+                          SizedBox(
+                            height: screenHeight * .03,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomText(
+                                  fontSize: 12,
+                                  textColor: Colors.grey,
+                                  text: 'Have an account? ',
+                                  // fontWeight: FontWeight.bold
+
+
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => LoginPage()));
+                                },
+                                child: CustomText(
+                                    fontSize: 12,
+                                    // textColor: Colors.grey,
+                                    text: 'Sign in    ',
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          )
                         ],
-                      ),
-                    )
-                  ],
+                      )),
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+              )
+
+            ],
+          ),
+        )
+
+        );
   }
 }

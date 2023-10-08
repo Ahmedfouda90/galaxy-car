@@ -9,6 +9,9 @@ import 'cars_details.dart';
 class HomePageTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
       appBar: AppBar(
         // centerTitle: true,
@@ -19,7 +22,7 @@ class HomePageTwo extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_new,
             color: Colors.white,
-            size: 40,
+            size: 25,
           ),
         ),
 
@@ -36,7 +39,6 @@ class HomePageTwo extends StatelessWidget {
           ],
         ),
 
-
         centerTitle: true,
         actions: [
           Stack(
@@ -52,12 +54,12 @@ class HomePageTwo extends StatelessWidget {
                     icon: Icon(
                       Icons.notifications_none,
                       color: Colors.white,
-                      size: 40,
+                      size: 30,
                     )),
               ),
               Positioned(
-                  top: 10,
-                  left: 22,
+                  top: 12,
+                  left: 25,
                   child: Container(
                     width: 8,
                     height: 8,
@@ -74,12 +76,10 @@ class HomePageTwo extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: Column(
           children: [
-            const SizedBox(
-              height: 25,
+             SizedBox(
+              height: screenHeight*.04,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+
             // textField for search
             Container(
               // width: 320,
@@ -114,8 +114,8 @@ class HomePageTwo extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: screenHeight*.03,
             ),
             // just text
             Row(
@@ -129,18 +129,17 @@ class HomePageTwo extends StatelessWidget {
                     fontWeight: FontWeight.w700),
               ],
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: screenHeight*.02,
             ),
             BrandLogo(),
             SizedBox(
-              height: 20,
+              height: screenHeight*.04,
             ),
             //just text
             /*  GridViewOfCarDetails( ),*/
             Expanded(
               child: GestureDetector(
-
                 onTap: () {
                   showModalBottomSheet(
                       isScrollControlled: true,
@@ -154,79 +153,86 @@ class HomePageTwo extends StatelessWidget {
                     Expanded(
                       child: GridView.builder(
                         // clipBehavior: Clip.none,
+                        // physics:\,
 
                         itemCount: 24,
                         shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-mainAxisExtent: 150,
+                          mainAxisExtent: 150,
                           crossAxisCount: 2,
-                          crossAxisSpacing: 15,
-                          mainAxisSpacing: 20,
-                          childAspectRatio: 4 /3,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 25,
+                          childAspectRatio: 4 / 3,
                         ),
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: const EdgeInsets.only(top: 15.0),
                             child: Stack(
-
                               clipBehavior: Clip.none,
                               children: [
                                 Positioned(
                                   child: Container(
+
+
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                       color: Color(0xffEEEEEE),
                                     ),
+
                                     // height: 200,
                                   ),
                                 ),
                                 Positioned(
-                                  top: -20,
-                                  left:10,
+                                  top: -25,
+                                  left: 13,
                                   child: Column(
                                     children: [
-
                                       Image.asset(
                                         'assets/images/car-png-39071 1.png',
-                                        width: 100,
+                                        // width: 100,
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: screenHeight*.009,
                                       ),
                                       CustomText(
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         text: 'Ford Reckons',
-                                        fontWeight: FontWeight.w700,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: screenHeight*.006,
                                       ),
                                       Row(
-
                                         children: [
                                           Image.asset(
                                               'assets/images/امارات.png'),
                                           SizedBox(
-                                            width: 5,
+                                            width: screenWidth*.015
                                           ),
                                           Text(
                                             'AED 50.000',
                                             style: TextStyle(
-                                              color: Color(0xffBF00C2)
+                                                color: Color(0xffBF00C2),
+                                            fontSize: 12
                                             ),
                                           ),
                                           SizedBox(
-                                            width: 5,
+                                              width: screenWidth*.015
                                           ),
                                           Text(
                                             '100k Mi.',
+                                            style: TextStyle(
+                                              fontSize: 12
+                                            ),
                                           ),
                                         ],
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                       ),
                                     ],
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                   ),
                                 ),
                               ],

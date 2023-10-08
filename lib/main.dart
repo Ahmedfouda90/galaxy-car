@@ -28,6 +28,7 @@ class GalaxyApp extends StatelessWidget {
 
       theme: ThemeData(
         fontFamily:'Poppins',
+        backgroundColor: Color(0xFF2B2A29)
 
       ),
       home:LoginPage(),

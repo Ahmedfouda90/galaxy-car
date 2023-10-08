@@ -8,8 +8,106 @@ class RecentlyAdded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
+
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        title: Container(
+          height: screenHeight*.0438,
+          width: screenWidth*.533,
+          child: TextFormField(
+
+            // maxLines: 1,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              contentPadding: EdgeInsets.only(top: screenHeight*.01),
+              prefixIcon: Icon(
+                Icons.search,
+                size: 25,
+                color: Color(0xffBF00C2),
+              ),
+              filled: true,
+              fillColor: Colors.white,
+              isDense: true,
+              hintText: 'Search Chat Car',
+              hintStyle: TextStyle(
+                  textBaseline: TextBaseline.alphabetic
+              ),
+
+              // contentPadding: EdgeInsets.only(bottom: 50),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                    width: 2,
+                    strokeAlign: 5,
+                  ),
+                  borderRadius: BorderRadius.circular(50)),
+            ),
+          ),
+        ),
+        centerTitle: true     ,
+        actions: [
+
+
+          Stack(
+            children: [
+              Positioned(
+                child: IconButton(
+                    onPressed: () {
+                     /* Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RecentlyAdded()));*/
+                    },
+                    icon: Icon(
+                      Icons.notifications_none,
+                      color: Colors.white,
+                      size: 30,
+                    )),
+              ),
+              Positioned(
+                  top: 10,
+                  left: 22,
+                  child: Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(50)),
+                  )),
+            ],
+          ),
+
+/*
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Brands()));
+              },
+              icon: Icon(
+                Icons.more_vert_rounded,
+                color: Colors.white,
+                size: 30,
+              )),
+*/
+        ],
+      ),
+      /*AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -49,9 +147,10 @@ class RecentlyAdded extends StatelessWidget {
               Positioned(
                 child: IconButton(
                     onPressed: () {
-                    /*  Navigator.push(context,
+                    *//*  Navigator.push(context,
                           MaterialPageRoute(builder: (context) => SameBrand()));
             */
+      /*
                     },
                     icon: Icon(
                       Icons.notifications_none,
@@ -72,24 +171,21 @@ class RecentlyAdded extends StatelessWidget {
             ],
           ),
         ],
-      ),
-      backgroundColor: Colors.black,
+      ),*/
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding:  EdgeInsets.symmetric(horizontal: screenWidth*.04),
           child: Column(
             children: [
               SizedBox(
-                height: 25,
+                height: screenHeight*.04,
               ),
-              SizedBox(
-                height: 20,
-              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                      fontSize: 18,
+                      fontSize: 14,
                       textColor: Colors.grey,
                       text: 'recently added',
                       fontWeight: FontWeight.w700),
@@ -111,7 +207,7 @@ class RecentlyAdded extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: screenHeight*.01,
               ),
               ConstrainedBox(
                 constraints:
@@ -119,12 +215,12 @@ class RecentlyAdded extends StatelessWidget {
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
-                    itemCount: 8,
+                    itemCount: 18,
                     itemBuilder: (context, int index) => Container(
                       margin: EdgeInsets.symmetric(vertical: 10),
                       padding: EdgeInsets.all(10),
-                      width: double.infinity,
-                      height: 110,
+                      width: screenWidth*.846,
+                      height: screenHeight*.13,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Color(0xffEEEEEE),
@@ -154,13 +250,14 @@ class RecentlyAdded extends StatelessWidget {
                           ),*/
 
                          Image.asset(
-                        'assets/images/image 24.png',width: 100,),
+                        'assets/images/image 24.png',height: screenHeight*.3,),
+                          SizedBox(width: screenWidth*.02,),
                           Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                SizedBox(height: 1,),
+                                SizedBox(height: screenHeight*.01),
                                /* Row(
                                   // crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,10 +276,11 @@ class RecentlyAdded extends StatelessWidget {
                                 Text(
                                   'Ford Reckons',
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w700),
                                 ),
 
+                                SizedBox(height: screenHeight*.01,),
 
                                 Row(
 
@@ -190,7 +288,7 @@ class RecentlyAdded extends StatelessWidget {
                                     Image.asset(
                                         'assets/images/امارات.png'),
                                     SizedBox(
-                                      width: 5,
+                                      width: screenWidth*.04,
                                     ),
                                     Text(
                                       'EWD 50.000',
@@ -199,13 +297,13 @@ class RecentlyAdded extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 5,
+                                      width: screenWidth*.04,
                                     ),
                                     Text(
                                       '100k Mi.',
                                     ),
                                   ],
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 ),
 
                               ],

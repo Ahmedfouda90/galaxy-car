@@ -12,80 +12,102 @@ import '../countries/all_countries.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width * .946;
+    double screenHeight = MediaQuery.of(context).size.height * 1.15;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-            size: 40,
-          ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(
+          screenHeight * .114,
         ),
-        title: TextFormField(
-          maxLines: 1,
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              size: 30,
-              color:Color(0xffBF00C2),
-            ),
-            filled: true,
-            fillColor: Colors.white,
-            isDense: true,
-            hintText: 'Search your Car',
-            // contentPadding: EdgeInsets.only(bottom: 50),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
+        child: Padding(
+          padding:  EdgeInsets.only(top: screenHeight * .043),
+          child: Container(
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              leading: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.menu,
                   color: Colors.white,
-                  width: 2,
-                  strokeAlign: 5,
+                  size: 40,
                 ),
-                borderRadius: BorderRadius.circular(50)),
+              ),
+              title: Container(
+                height: screenHeight*.0438,
+                width: screenWidth*.533,
+                child: TextFormField(
+
+                  // maxLines: 1,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+contentPadding: EdgeInsets.only(top: screenHeight*.01),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      size: 25,
+                      color: Color(0xffBF00C2),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                    isDense: true,
+                    hintText: 'Search your Car',
+                    hintStyle: TextStyle(
+                      textBaseline: TextBaseline.alphabetic
+                    ),
+
+                    // contentPadding: EdgeInsets.only(bottom: 50),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                          width: 2,
+                          strokeAlign: 5,
+                        ),
+                        borderRadius: BorderRadius.circular(50)),
+                  ),
+                ),
+              ),
+              actions: [
+                Stack(
+                  children: [
+                    Positioned(
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Countries()));
+                          },
+                          icon: Icon(
+                            Icons.notifications_none,
+                            color: Colors.white,
+                            size: 40,
+                          )),
+                    ),
+                    Positioned(
+                        top: 10,
+                        left: 22,
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(50)),
+                        )),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
-        actions: [
-          Stack(
-            children: [
-              Positioned(
-                child: IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Countries()));
-                    },
-                    icon: Icon(
-                      Icons.notifications_none,
-                      color: Colors.white,
-                      size: 40,
-                    )),
-              ),
-              Positioned(
-                  top: 10,
-                  left: 22,
-                  child: Container(
-                    width: 8,
-                    height: 8,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(50)),
-                  )),
-            ],
-          ),
-        ],
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding:  EdgeInsets.symmetric(horizontal:screenWidth*.04),
           child: Column(
             children: [
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: screenHeight * .08,
               ),
 
               // the container at the above of screen
@@ -94,15 +116,15 @@ class HomePage extends StatelessWidget {
                 children: [
                   Positioned(
                     child: Container(
-                      width: double.infinity,
-                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      height: screenHeight * .118,
                       decoration: BoxDecoration(
                           color: Colors.white70,
                           borderRadius: BorderRadius.circular(20)),
                     ),
                   ),
                   Positioned(
-                    bottom: 15,
+                    bottom: 10,
                     right: 0,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -131,14 +153,18 @@ class HomePage extends StatelessWidget {
                                 // textColor: ,
                                 text: 'Sell a car ',
                                 fontWeight: FontWeight.bold),
-                            SizedBox(height: 3,),
+                            SizedBox(
+                              height: 3,
+                            ),
                             CustomText(
                               fontSize: 14,
                               // textColor: ,
                               text: 'Discover the road',
                               // fontWeight: FontWeight.bold
                             ),
-                            SizedBox(height: 3,),
+                            SizedBox(
+                              height: 3,
+                            ),
                             CustomText(
                               fontSize: 14,
                               // textColor: ,
@@ -154,14 +180,15 @@ class HomePage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: screenHeight * .05,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // SizedBox(width: 1,),
-                  CustomText(fontSize: 24,
+                  CustomText(
+                      fontSize: 24,
                       textColor: Colors.white,
                       text: 'Browse',
                       fontWeight: FontWeight.bold),
@@ -172,18 +199,18 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const CountiesDetails(),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: screenHeight * .04,
+              ),              const CountiesDetails(),
+              SizedBox(
+                height: screenHeight * .04,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // SizedBox(width: 1,),
-                  CustomText(fontSize: 24,
+                  CustomText(
+                      fontSize: 24,
                       textColor: Colors.white,
                       text: 'Brands',
                       fontWeight: FontWeight.bold),
@@ -194,8 +221,8 @@ class HomePage extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: screenHeight * .02,
               ),
               const BrandLogo(),
               const SizedBox(
